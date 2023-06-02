@@ -1,0 +1,3 @@
+The constructors, get_name() & get_address() member functions would be public to allow creation of the object and read only access to it's data.
+
+The member variables name and address should be private to prevent direct access to the classes data. Access should only be granted via the interface (public methods).

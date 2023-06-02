@@ -1,0 +1,1 @@
+val-- returns a copy of the contents of val (in this case the number 5) before decrementing, this value is then passed back into the recursion loop. This essentially resets val to 5 each recurse creating an infinite loop.

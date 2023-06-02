@@ -1,0 +1,7 @@
+(a)
+
+inline function declarations and definitions should be placed in a header file and included in source files when required. This is good practice since the definition of an inline function must match exactly each time it is defined.
+
+(b)
+
+Function declarations like this should generally exist inside header files (depending on the programming idiom you use), the definitions should be in the source files.

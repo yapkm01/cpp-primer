@@ -1,0 +1,9 @@
+(a)
+
+// Compare matrix x and y, return true if they match, false otherwise.
+// Reference should be a const since they are not changed in the function
+bool compare(const matrix &x, const matrix &y);
+(b)
+
+// Changes the value at itr with the value x and returns the updated iterator
+vector<int>::iterator change_val(int x, vector<int>::iterator itr);

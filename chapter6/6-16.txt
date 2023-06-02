@@ -1,0 +1,4 @@
+bool is_empty(const string& s) {
+    return s.empty();
+}
+By adding const we can now pass a const object, literal or an object that requires conversion to a plain reference parameter.

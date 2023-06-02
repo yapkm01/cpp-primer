@@ -1,0 +1,12 @@
+#ifndef CHAPTER6_HPP
+#define CHAPTER6_HPP
+
+int fact(int val);
+int interactive_fact();
+
+template <typename T> 
+T abs(T i) {
+    return i >= 0 ? i : -i;
+}
+
+#endif // CHAPTER6_HPP

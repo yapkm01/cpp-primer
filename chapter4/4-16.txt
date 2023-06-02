@@ -1,0 +1,6 @@
+if (p = getPtr() != 0) // (p = (getPtr() != 0)) which p always be boolean.
+if (i = 1024) // i assigned 1024 and will always be true
+
+// correction
+if ((p=getPtr()) != 0)
+if (i == 1024)

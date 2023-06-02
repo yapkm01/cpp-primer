@@ -1,0 +1,14 @@
+(a) "Who goes with F\145rgus?\012" 
+    - "who goes with Fergus?\n" 
+    - character string literal
+
+(b) 3.14e1L
+    - 31.4
+    - long double
+
+(c) 1024f
+    - invalid suffix "f" on integer constant
+
+(d) 3.14L
+    - 3.14
+    - long double

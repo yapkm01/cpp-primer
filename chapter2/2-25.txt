@@ -1,0 +1,3 @@
+(a) int* ip, i, &r = i; // ip is a pointer to int, i is an int, r is a reference to int i
+(b) int i, *ip = 0; // i is an int, ip is a valid null pointer
+(c) int* ip, ip2; // ip is a pointer to an int, ip2 is an int

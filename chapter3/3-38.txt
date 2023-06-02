@@ -1,0 +1,1 @@
+Because the value of a pointer in actually an address. There is no meaning to add two addresses: we can't know whether the result is a valid address or an address that stores a value of the same type.

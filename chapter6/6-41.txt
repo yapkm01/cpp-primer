@@ -1,0 +1,11 @@
+a)
+
+Illegal, no argument has been supplied for ht.
+
+(b)
+
+Legal. ht = 24, wd = 10, bckgrnd = ' '.
+
+(c)
+
+Legal but probably not what the programmer intended. Since the parameter list is positional the * character instead of being used for bckgrnd is converted to an int, 42, and used to provide a value for wd. bckgrnd is set using the default value ' '.

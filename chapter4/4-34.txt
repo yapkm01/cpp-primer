@@ -1,0 +1,3 @@
+a) if (fval) // if fval is 0.0 then it'll be converted to false else true
+b) dval = fval + ival; // ival is converted to float, the result of fval and ival is converted to double
+c) dval + ival * cval; // cval is converted to int, the result of ival * cval is converted to double

@@ -1,0 +1,1 @@
+Just like a vector the type of elem will be of the same type used in the definition of the initializer_list therefore elem is equal to const string&

@@ -1,0 +1,29 @@
+auto deduced types will ignore top level const whereas decltype will not.
+
+const int i = 42;
+
+auto ai = i;           // ai is an int
+decltype(i) di = i;    // di is a const int
+When auto is used with a reference type, the deduced type is that of the referred to object. decltype will instead produce a reference type.
+
+int i = 42;
+int& r = i;
+
+auto ai = r;           // ai is an int
+decltype(r) ri = r;    // ri is a int&
+If we want decltype to deduce the same type as auto in the previous example we could use an expression.
+
+decltype(r + 0) ri = r;
+By using an expression decltype is now using the expressions return type. An int (r is a reference to int) plus an int (0 is an int) returns an int.
+
+auto and decltype will deduce the same type when dealing with basic types with no modifiers.
+
+int i = 42;
+
+auto ai = i;           // ai is an int
+decltype(i) di = i;    // di is an int
+One other thing to note about decltype is that if we surround a variable with parentheses it will be treated as an expression, the result of which is a reference type.
+
+int i = 42;
+
+decltype((i)) di = i;    // di is an int&

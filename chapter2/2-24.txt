@@ -1,0 +1,5 @@
+int i =42;
+void *p=&i; // legal
+long *lp=&i; // illegal
+
+Because the type void* is a special pointer type that can hold the address of any object. But we cannot initialize a variable of type long * with an rvalue of type int *

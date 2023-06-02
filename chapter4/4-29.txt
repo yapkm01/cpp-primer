@@ -1,0 +1,3 @@
+int x[10];   int *p = x;
+cout << sizeof(x)/sizeof(*x) << endl; // 40/4=10
+cout << sizeof(p)/sizeof(*p) << endl; // undefined. size of pointer / size of pointed object

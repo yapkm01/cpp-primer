@@ -1,0 +1,5 @@
+There is no limit on how many times an access specifier can appear within a struct or class. Each definition following a specifier has the specified 'visibility' until either the next specifier or end of class is reached.
+
+The constructors and member functions that are part of the interface should be defined after a public specifier.
+
+The data members and member functions that are part of the implementation should be defined after a private specifier.

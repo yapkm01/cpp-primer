@@ -1,0 +1,3 @@
+Definition		Type / Value						After Incrementing
+decltype(a) c = a;	c is an int, the value of a is copied into it		c is 4, a is 4
+decltype((b)) d = a;	d is an int& to a					d is 4 therefore a is 4, b remains 4

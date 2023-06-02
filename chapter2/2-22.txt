@@ -1,0 +1,2 @@
+1. if (p) // ...  if p is a nullptr
+2. if (*p) // ... if the object pointed by p is 0

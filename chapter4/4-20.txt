@@ -1,0 +1,6 @@
+*iter++;  // *(iter++) iter move to next string returning the original iter before being deferenced
+(*iter)++;  // illegal, *iter is a string, cannot increment value.
+*iter.empty(); // *(iter.empty()) illegal, iter does not have member function empty
+iter->empty();  // check if returned string is empty
+++*iter;  //  illegal, ++ and * have same precedence and right associative, therefore string  cannot be incremented
+iter++->empty(); // return original string and check if it's empty

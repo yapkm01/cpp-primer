@@ -1,0 +1,4 @@
+string s;
+cout << s[0] << endl;
+
+This code was dereferencing and printing the first item stored in s. Since s is empty, such operation is invalid, a.k.a. undefined behavior.

@@ -1,0 +1,14 @@
+(a) std::cin >> int input_value;
+    - error: expected primary-expression before ‘int’
+    - int input_value should be declared (possibly defined) prior to usage
+
+(b) int i = {3.14};
+    - error: narrowing conversion required
+    - use int i (3.14); or int i = 3.14;
+
+(c) double salary = wage = 9999.99;
+    - error: ‘wage’ was not declared in this scope
+    - double wage = 9999.99, salary = wage;
+
+(d) int i = 3.14;
+    - ok but truncated

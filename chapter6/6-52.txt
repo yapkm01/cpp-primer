@@ -1,0 +1,7 @@
+(a)
+
+char is promoted to int - Promotion
+
+(b)
+
+double is converted to int - Arithmetic conversion

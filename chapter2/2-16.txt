@@ -1,0 +1,5 @@
+int i = 0, &r1 = i; double d = 0, &r2 = d;
+(a) r2 = 3.14159; // valid. assign 3.14159 to d
+(b) r2 = r1; // valid. automatic conversion 0.0 to d
+(c) i = r2; // valid. possible truncation
+(d) r1 = d; // valid. possible truncation

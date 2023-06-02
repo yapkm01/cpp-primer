@@ -1,0 +1,5 @@
+Since the less than < operator has higher precedence than the inequality != operator, j < k will be evaluated first making the statement i != boolean_value. The boolean value will be converted to either 1 or 0 respectively depending on whether j is less than k or not. Possible outcomes are:
+
+If j < k is true (1), the statement is true if i does not equal 1, it is false otherwise.
+
+if j < k is false (0), the statement is true if i does not equal 0, it is false otherwise.

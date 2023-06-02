@@ -1,0 +1,1 @@
+In the read nonmember function we need write access to the Sales_data object to 'read in' the data. print only requires reading of the data already stored in the Sales_data object, so it should be 'read only' or const.

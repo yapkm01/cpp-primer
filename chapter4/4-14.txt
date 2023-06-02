@@ -1,0 +1,2 @@
+if (42 = i)   // complie error: expression is not assignable. 42 is an rvalue
+if (i = 42)   // true.

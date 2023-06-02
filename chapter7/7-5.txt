@@ -1,0 +1,7 @@
+If these member functions are not const the following would be illegal
+
+const Person andy;
+cout << andy.get_address() << endl;
+Since andy is a const Person he can only call member functions with the same constness.
+
+If we define these member functions to be const both a const Person and a Person (non const) can utilise them. Having const member functions effectively increases their flexibility.

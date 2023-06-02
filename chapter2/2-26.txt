@@ -1,0 +1,4 @@
+(a) const int buf; // illegal. uninitialized const object buf
+(b) int cnt = 0; // legal
+(c) const int sz = cnt; // legal
+(d) ++cnt; ++sz; // illegal. attempting to modify const object sz

@@ -1,0 +1,15 @@
+(a)
+
+Illegal, too many arguments supplied.
+
+(b)
+
+Legal, const literals (temporary variables) can be used.
+
+(c)
+
+Legal, 66 is converted to double 66.0.
+
+(d)
+
+Legal, double 3.8 will be converted to int 3.

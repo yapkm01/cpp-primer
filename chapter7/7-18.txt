@@ -1,0 +1,1 @@
+Encapsulation 'hides' the implementation. Only the class it's self is able to access the encapsulated members. This helps show intent and guard against incorrect use of the class since only the public members are available to the user of the class.

@@ -1,0 +1,11 @@
+const string &s is passed-by-reference for efficiency as strings can be quite large. Since we do not want to make any modifications to the string it as also passed as a const.
+
+char c is passed-by-value so it can be either an l-value or an r-value and we have no need to alter it's value.
+
+string::size_type &occurs is passed-by-reference since we need to reset it's value (outside the function), then increment it as each occurrence of char c is found.
+
+If s was made a plain reference, the program would still work as expected however it could be dangerous if later changes to the function ended up making modifications to s
+
+If occurs was a reference to const we wouldn't be able to update it's value.
+
+

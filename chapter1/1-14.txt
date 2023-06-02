@@ -1,0 +1,6 @@
+// advantage of for loop over while loop:
+// 1. intialize, condition checking & variable increment all at for header statements
+// 2. less error prone since all loop functionalities are tightly coupled at the header
+
+// advantage of while loop over for loop:
+// 1. indefinite iteration depending on conditional expression

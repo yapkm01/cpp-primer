@@ -1,0 +1,1 @@
+Legal, fills array ia with the values 0 to 9 inclusive. Everything is pretty self explanatory, the only part of note is the function call being assigned a value. Since the return value of the function is a reference to ia, this is legal.

@@ -1,0 +1,31 @@
+(a)
+
+Viable functions are:
+
+void f(int, int);                 // <-- Function 1
+void f(double, double = 3.14);    // <-- Function 2
+The call in this case is ambiguous since our first argument matches function two, but the second argument matches function one.
+
+(b)
+
+Viable functions are:
+
+void f(int);                      // <-- Function 1
+void f(double, double = 3.14);    // <-- Function 2
+In this case the best match is function one as it matches exactly. Function two is a viable function via conversion (int -> double) and because of the default value.
+
+(c)
+
+Viable functions are:
+
+void f(int, int);             // <-- Function 1
+void f(int, double = 3.14)    // <-- Function 2
+In this case the best match is function one as it matches exactly. Function two is a viable function via conversion (int -> double) for both arguments.
+
+(d)
+
+Viable functions are:
+
+void f(int, int);             // <-- Function 1
+void f(int, double = 3.14)    // <-- Function 2
+In this case the best match is function two as it matches exactly. Function one is a viable function via conversion (double -> int) for both arguments.

@@ -1,0 +1,1 @@
+legal. Print 100 45

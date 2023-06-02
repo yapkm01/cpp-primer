@@ -1,0 +1,20 @@
+a. 'a' - character literal
+   L'a' - wide character literal, type is wchar_t
+   "a" - string literal
+   L"a" - wide character string literal, type is wchar_t
+
+b. 10 - signed decimal literal
+   10u - unsigned decimal literal
+   10L - signed long decimal literal
+   10uL - unsigned long decimal literal
+   012 - signed/unsigned octal literal
+   0xC - signed/unsigned hexadecimal literal
+
+c. 3.14 - double literal
+   3.14f - float literal
+   3.14L - long double literal
+
+d. 10 - signed decimal literal
+   10u - unsigned decimal literal
+   10. - double literal
+   10e-2 - double literal in exponent scientific notation

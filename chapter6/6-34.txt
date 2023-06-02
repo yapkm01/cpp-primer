@@ -1,0 +1,32 @@
+A good way to find the differences, especially when it comes to recursive functions, is to add some cout statements to output info at each stage though the recursion.
+
+int factorial(int val) {
+    static int run_count = 0;
+    ++run_count;
+    // Change this to != 0 and try again
+    if (val > 1) {
+        cout << val << " x ";
+        return factorial(val - 1) * val;
+    }
+    // Here val is always 1 because of the explicit return value below
+    cout << 1 << endl;
+    cout << "Function has been run " << run_count << " times.\n";
+    return 1;
+}
+
+int main() {
+    cout << factorial(5) << endl;
+    return 0;
+}
+
+Sample output:
+
+5 x 4 x 3 x 2 x 1
+Function has been run 5 times.
+120
+Compare this with the output from the altered condition (val != 0):
+
+5 x 4 x 3 x 2 x 1 x 1
+Function has been run 6 times.
+120
+We can see that the function was called an extra time. Fortunately since the returned value is 1 it doesn't change the end result. There is however a major issue if a negative number is supplied to the function. In the altered version, supplying a negative will cause an infinite loop since val will never equal zero.

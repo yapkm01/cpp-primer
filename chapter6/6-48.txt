@@ -1,0 +1,4 @@
+The while loop will accept user input until the sought string is entered or the EOF command (ctrl-d on linux) is issued. The assert condition, cin is not a good choice since it will always equal 1 (true). The assert condition should represent a value that should not be possible at this stage of execution. A better choice would be something like:
+
+assert(s.size() > 0 && s == sought);
+To confirm the value stored in s is a logical length (just in case sought has been set incorrectly) and that it is in fact the value we want.

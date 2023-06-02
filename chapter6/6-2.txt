@@ -1,0 +1,8 @@
+(a) string f() {  // return should be string, not int
+          string s;
+          // ...
+          return s;
+    }
+(b) void f2(int i) { /* ... */ }  // function needs return type
+(c) int calc(int v1, int v2) { /* ... */ }  // parameter list cannot use same name twice
+(d) double square (double x) { return x * x; }  // function body needs braces

@@ -1,0 +1,8 @@
+const char ca[] = { 'h', 'e', 'l', 'l', 'o' };
+const char *cp = ca;
+while (*cp) {
+    cout << *cp << endl;
+    ++cp;
+}
+
+s code tries to output the const char array ca. The problem is that ca doesn't have null terminator. The loop might not end as expected.

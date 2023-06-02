@@ -1,0 +1,29 @@
+int i = 0, &r = i;
+
+auto a = r;                     // a is an int (r is an alias for i, which has type int)
+
+const int ci = i, &cr = ci;
+auto b = ci; 			// b is an int (top-level const in ci is dropped)
+auto c = cr;  			// c is an int (cr is an alias for ci whose const is top-level)
+auto d = &i;  			// d is an int*(& of an int object is int*)
+auto e = &ci; 			// e is const int*(& of a const object is low-level const)
+
+const auto f = ci; 		// deduced type of ci is int; f has type const int
+
+auto &g = ci;       		// g is a const int& that is bound to ci
+auto &h = 42;       		// error: we can't bind a plain reference to a literal
+const auto &j = 42; 		// ok: we can bind a const reference to a literal
+
+auto k = ci, &l = i;    	// k is int; l is int&
+auto &m = ci, *p = &ci; 	// m is a const int&;p is a pointer to const int
+auto &n = i, *p2 = &ci;		// error: type deduced from i is int; type deduced from &ci is const int
+
+// determine what happens
+
+Definition	Type / Value					Result
+a = 42		a is an int, it's value is 42.			Legal.
+b = 42		b is an int, it's value is 42.			Legal.
+c = 42		c is an int, it's value is 42.			Legal.
+d = 42		d is an int*, it holds the address of i.	Illegal, needs to be dereferenced to assign a value.
+e = 42		e is a const int*, it holds the address of ci.	Illegal, pointed to type is const.
+g = 42		g is a const int&, it refers to ci.		Illegal, referred to type is const.

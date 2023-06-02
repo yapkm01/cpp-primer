@@ -1,0 +1,1 @@
+Reference parameters should generally be references to const unless they are being used to alter the supplied argument. When creating a plain reference which should be a reference to const you are limiting the types that canbe used as arguments as detailed in exercise 6.16 and increasing the chance of erroneously modifying the supplied argument.

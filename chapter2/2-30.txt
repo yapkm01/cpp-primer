@@ -1,0 +1,7 @@
+Declaration						Const type / Description
+const int v2 = 0;					v2 = Top-level const
+int v1 = v2;						v1 = Non const int
+int *p1 = &v1, &r1 = v1					p1 = Non const pointer, r1 = Non const reference
+const int *p2 = &v2, *Const p3 = &i, &r2 = v2;		p2 = low-level const, p3 = both top-level and low-level const, r2 = low-level
+
+Note: references are, by default, low-level const

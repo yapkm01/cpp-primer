@@ -1,0 +1,12 @@
+int i, *const cp;       // illegal. constant pointer cp must be initialized
+int *p1, *const p2;     // illegal. constant pointer p2 must be initialized
+const int ic, &r = ic;  // illegal. constant int ic must be initialized
+const int *const p3;    // illegal. constant pointer p3 must be initialized
+const int *p;           // legal. pointer to a const int
+
+(a) i = ic;     // legal
+(b) p1 = p3;    // illegal. p3 is a const pointer to a const int while p1 is a plain pointer to int
+(c) p1 = &ic;   // illegal. ic is a const int while p1 is a plain pointer to int
+(d) p3 = &ic;   // illegal. p3 is a const pointer to a const int which cannot have its address modified
+(e) p2 = p1;    // illegal. p2 is a const pointer which cannot have its address modified
+(f) ic = *p3;   // illegal. ic is a const int

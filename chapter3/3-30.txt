@@ -1,0 +1,6 @@
+constexpr size_t array_size = 10;
+int ia[array_size];
+for (size_t ix = 1; ix <= array_size; ++ix)
+      ia[ix] = ix;
+
+when x equal to 10, the expression ia[ix] becomes out of bound

@@ -1,0 +1,10 @@
+This code is not legal, a pointer must be initialised to the address of an object, a literal 0, nullptr, or another pointer (creates a copy). So to fix this code we could turn null into a pointer:
+
+int *null = 0, *p = null;
+p is a copy of null, both of which are independent null pointers. Another option, if null was required to remain as an int, would be to simply initialise p to a nullptr:
+
+int null = 0, *p = nullptr;
+Lastly we can assign directly to zero:
+
+int null = 0, *p = 0;
+Using nullptr is likely the best solution.

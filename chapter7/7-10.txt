@@ -1,0 +1,3 @@
+We work this one from the inside out. First the inner read reads data into data1 it then returns a reference to an istream object (as per our header file from the previous exercise) which is then used as the input to feed data to data2.
+
+This statement will betrue only if there is enough data to satisfy both data1 and data2, it will be false otherwise.

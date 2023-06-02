@@ -1,0 +1,7 @@
+string sa[10];      //all elements are empty strings
+int ia[10];         //all elements are 0
+
+int main() {
+    string sa2[10]; //all elements are empty strings
+    int ia2[10];    //all elements are undefined
+}

@@ -1,0 +1,18 @@
+First lets understand how it works being right associative. Considering the original code:
+
+finalgrade = (grade > 90) ? "High pass" : (grade < 60) ? "fail" : "pass";
+Associativity rules determine which operator is evaluated first when two operators of equal precedence are adjacent to each other. As noted the conditional operator is right associative, meaning it is evaluated from right to left like so:
+
+finalgrade = ((grade > 90) ? "High pass" : ((grade < 60) ? "fail" : "pass"));
+The result of the right most conditional operator is used as the fail statement for the left hand conditional statement. As an example if the value of grade was 80 the expression would reduce to this:
+
+finalgrade = (grade > 90) ? "High pass" : "pass";
+The final result would obviously be pass.
+
+If the conditional statement was left associative it would be evaluated like so:
+
+finalgrade = ((grade > 90) ? "High pass" : (grade < 60)) ? "fail" : "pass";
+This code will not compile since the expressions for true/false branches in the first conditional statement are not compatible/convertible types; they would both need to be of the same or valid convertible type. Even if this code would compile the result would be incorrect. If grade was > 90 the expression would reduce like so:
+
+finalgrade = "High pass" ? "fail" : "pass";
+The result would be fail since an initialised string is always true.

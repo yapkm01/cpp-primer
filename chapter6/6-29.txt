@@ -1,0 +1,1 @@
+initializer_list elements are always const and cannot be changed the only reason you would use a reference as a control variable would be to avoid copying thereby avoiding overhead.

@@ -1,0 +1,1 @@
+Since we're only accessing the pointer to read it's value we should use const int* as the type. The plain int parameter can remain a plain int since it is a local variable within the scope of the function only.

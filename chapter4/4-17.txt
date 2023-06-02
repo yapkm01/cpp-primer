@@ -1,0 +1,12 @@
+The prefix increment operator will increment the object and return its new value. The postfix increment operator will increment the object but instead return a copy of the original unmodified object as shown in the example below.
+
+int i = 0;
+
+// Increments i and returns the new value
+cout << ++i << endl;  // Prints 1
+
+// Increments i but returns a copy of i before the change
+cout << i++ << endl;  // Prints 1
+
+// Current value of i
+cout << i << endl;    // Prints 2

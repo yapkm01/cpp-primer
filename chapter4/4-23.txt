@@ -1,0 +1,6 @@
+Since the addition and equality operators have higher precedence than the conditional ?: operator the code as shown could also be written as:
+
+string pl = (s + s[s.size() - 1]) == 's' ? "" : "s";
+It is trying to compare a string to a char ("wordd" == 's'). To fix this we simply parenthesise the conditional code
+
+string pl = s + (s[s.size() - 1]) == 's' ? "" : "s");

@@ -1,0 +1,14 @@
+Declaration						Const type / Description
+const int v2 = 0;					v2 = Top-level const
+int v1 = v2;						v1 = Non const int
+int *p1 = &v1, &r1 = v1					p1 = Non const pointer, r1 = Non const reference
+const int *p2 = &v2, *Const p3 = &i, &r2 = v2;		p2 = low-level const, p3 = both top-level and low-level const, r2 = low-level
+
+Note: references are, by default, low-level const
+
+Statement	Description
+r1 = v2;	Legal, v2's top-level const is ignored
+p1 = p2;	Illegal p2 is low-level const p1 is not
+p2 = p1;	Legal, p1's type is converted to const int. p2 is low-level
+p1 = p3;	Illegal, p3's top-level const is ignored, base type is low-level
+p2 = p3;	Legal, p3's top-level const is ignored base types are both const int

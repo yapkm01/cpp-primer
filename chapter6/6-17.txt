@@ -1,0 +1,3 @@
+The parameters used in each function are different. Since checking a string for capital letters doesn't change the string we can use const. This also allows us to pass const objects and literals as per the exercise above.
+
+The second function changes the string so cannot be const.

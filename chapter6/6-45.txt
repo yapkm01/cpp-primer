@@ -1,0 +1,1 @@
+All earlier exercises can be inline functions by placing the definitions in a header file with the inline specifier. There are some considerations however - functions that will not be used in multiple source files, are non-trivial, recursive or require user input should probably not be made inline. (Currently can't be bothered creating this header file.)

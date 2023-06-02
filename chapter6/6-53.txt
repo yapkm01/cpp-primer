@@ -1,0 +1,11 @@
+(a)
+
+The second declaration overloads the calc function to allow references to const int as arguments.
+
+(b)
+
+The second declaration overloads the calc function to allow pointers to const char as arguments.
+
+(c)
+
+Top level const is ignored so these declarations are identical, which is illegal.

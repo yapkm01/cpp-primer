@@ -1,0 +1,5 @@
+Whitespace characters include space, newline and tab
+
+For code like cin >> str, input is separated by whitespaces while reading into string str.
+For code like getline(cin, str) input is separated by newline while reading into string str. Other whitespaces are ignored.
+For code like getline(cin, str, delim) input is separated by delim while reading into string str. All whitespaces are ignored.

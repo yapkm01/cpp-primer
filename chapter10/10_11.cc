@@ -24,7 +24,7 @@ void elimdups(vector<string>& vs) {
 
 int main() {
     vector<string> v{
-	"bbbb", "bbbcc", "aacc", "aaaaa", "aab"
+	"bbbb", "bbbcc", "aacc", "aaaaa", "aab", "1111"
     };
     elimdups(v);
     println(v);

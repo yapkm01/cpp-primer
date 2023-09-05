@@ -27,6 +27,7 @@ private:
 int main() {
     C c;
     cout << c.getNoDefault().getI() << endl;
-    vector <NoDefault> vec(10);
+    // failed due to initialization error
+    // vector <NoDefault> vec(10);
     return 0;
 }

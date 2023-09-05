@@ -8,8 +8,8 @@ DEPS=
 OBJ=iostate.o iotie.o
 
 %.o: %.cc $(DEPS)
-	$(CXX) -c -o $@ $< $(CXXFLAG)
-	$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
+	-$(CXX) -c -o $@ $< $(CXXFLAG)
+	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
 
 all: $(OBJ)
 

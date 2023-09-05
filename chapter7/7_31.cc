@@ -1,7 +1,7 @@
 struct Y;
 
 struct X {
-  Y *y;
+  Y* y;
 };
 
 struct Y {

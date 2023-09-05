@@ -5,11 +5,11 @@
 CXXFLAG=-std=c++20 -I.
 CXX=g++
 DEPS=
-OBJ=
+OBJ=lambda_captures.o
 
 %.o: %.cc $(DEPS)
-	$(CXX) -c -o $@ $< $(CXXFLAG)
-	$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
+	-$(CXX) -c -o $@ $< $(CXXFLAG)
+	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
 
 all: $(OBJ)
 

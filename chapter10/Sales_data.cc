@@ -1,4 +1,5 @@
 #include "include/Sales_data.h"
+using namespace std;
 
 Sales_data::Sales_data(istream& is) {
 	read(is, *this);

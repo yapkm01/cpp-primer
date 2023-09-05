@@ -11,7 +11,7 @@ struct T1 { // no ctor
 struct T2 { // a ctor, but no default
     int mem1;
     string mem2;
-    T2(const T2 &) {}
+    T2(const T2&) {}
 };
 
 struct T3 { // user-provided default ctor

@@ -4,15 +4,15 @@ using namespace std;
 
 class Account {
   static constexpr int period = 30;
-  friend ostream &print(ostream &, const Account &);
+  friend ostream& print(ostream&, const Account&);
 
 public:
   Account() : Account("", 0) {}
-  explicit Account(const string &o, double b = 0.0)
+  explicit Account(const string& o, double b = 0.0)
       : owner(o), balance(b), daily_tbl() {}
 
   void addInterest() { balance += balance * interestRate; }
-  ostream &print(ostream &);
+  ostream& print(ostream&);
 
   static double rate() { return interestRate; }
   static void rate(double newRate) { interestRate = newRate; }
@@ -31,7 +31,7 @@ double Account::initRate() {
   return 0.1;
 }
 
-ostream &print(ostream &os, const Account &a) {
+ostream& print(ostream& os, const Account& a) {
   os << a.owner << " " << a.balance << "\n"
      << a.daily_tbl[0];
   return os;

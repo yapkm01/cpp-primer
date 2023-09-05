@@ -23,7 +23,7 @@ auto eliminate_duplicates(vector<string>& vs) -> vector<string>& {
 }
 
 int main() {
-    vector<string> vs{ "a", "v", "a", "s", "v", "a", "a" };
+    vector<string> vs{ "a", "v", "a", "s", "v", "a", "a", "1" };
     println(vs);
     println(eliminate_duplicates(vs));
 

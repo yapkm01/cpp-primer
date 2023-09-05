@@ -3,29 +3,29 @@
 using namespace std;
 
 class Sales_data {
-  friend Sales_data add(const Sales_data &, const Sales_data &);
-  friend istream &read(istream &, Sales_data &);
-  friend ostream &print(ostream &, const Sales_data &);
+  friend Sales_data add(const Sales_data&, const Sales_data&);
+  friend istream& read(istream&, Sales_data&);
+  friend ostream& print(ostream&, const Sales_data&);
 
 public:
   Sales_data() : Sales_data("", 0, 0.0) {
     cout << "Sales_data() is called." << endl;
   }
-  Sales_data(const string &no) : Sales_data(no, 0, 0.0) {
-    cout << "Sales_data(const string &no) is called." << endl;
+  Sales_data(const string& no) : Sales_data(no, 0, 0.0) {
+    cout << "Sales_data(const string& no) is called." << endl;
   }
-  Sales_data(const string &no, unsigned us, double price)
+  Sales_data(const string& no, unsigned us, double price)
       : bookNo(no), units_sold(us), revenue(price * us) {
-    cout << "Sales_data(const string &no, "
+    cout << "Sales_data(const string& no, "
                  "unsigned us, double price) is called." << endl;
   }
-  Sales_data(istream &is) : Sales_data() {
-    cout << "Sales_data(istream &is) is called." << endl;
+  Sales_data(istream& is) : Sales_data() {
+    cout << "Sales_data(istream& is) is called." << endl;
     read(is, *this);
   }
 
   string isbn() const { return bookNo; }
-  Sales_data &combine(const Sales_data &);
+  Sales_data& combine(const Sales_data&);
 
 private:
   double avg_price() const;
@@ -34,26 +34,26 @@ private:
   double revenue = 0.0;
 };
 
-Sales_data &Sales_data::combine(const Sales_data &rhs) {
+Sales_data& Sales_data::combine(const Sales_data& rhs) {
   units_sold += rhs.units_sold;
   revenue += rhs.revenue;
   return *this;
 }
 
-Sales_data add(const Sales_data &lhs, const Sales_data &rhs) {
+Sales_data add(const Sales_data& lhs, const Sales_data& rhs) {
   Sales_data sum = lhs;  // Use default copy constructor
   sum.combine(rhs);
   return sum;
 }
 
-istream &read(istream &is, Sales_data &item) {
+istream& read(istream& is, Sales_data& item) {
   double price;
   is >> item.bookNo >> item.units_sold >> price;
   item.revenue = item.units_sold * price;
   return is;
 }
 
-ostream &print(ostream &os, const Sales_data &item) {
+ostream& print(ostream& os, const Sales_data& item) {
   os << item.isbn() << " " << item.units_sold << " "
      << item.revenue << " " << item.avg_price();
   return os;

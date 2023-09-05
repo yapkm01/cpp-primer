@@ -10,8 +10,8 @@ OBJ=capacity.o value_type.o c_array.o begin_end.o size_related_ctor.o std_array.
     string_compare.o
 
 %.o: %.cc $(DEPS)
-	$(CXX) -c -o $@ $< $(CXXFLAG)
-	$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
+	-$(CXX) -c -o $@ $< $(CXXFLAG)
+	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
 
 all: $(OBJ)
 

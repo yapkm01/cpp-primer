@@ -13,19 +13,19 @@ public:
   Screen(pos ht, pos wd, content_type c)
       : height(ht), width(wd), contents(ht * wd, c) {}
 
-  const content_type &get() const { return contents[cursor]; }
-  const content_type &get(pos row, pos col) const;
+  const content_type& get() const { return contents[cursor]; }
+  const content_type& get(pos row, pos col) const;
 
-  Screen &set(content_type c);
-  Screen &set(pos row, pos col, content_type c);
+  Screen& set(content_type c);
+  Screen& set(pos row, pos col, content_type c);
 
-  Screen &move(pos row, pos col);
+  Screen& move(pos row, pos col);
 
-  const Screen &display(ostream &os) const;
-  Screen &display(ostream &os);
+  const Screen& display(ostream& os) const;
+  Screen& display(ostream& os);
 
 private:
-  void do_display(ostream &os) const;
+  void do_display(ostream& os) const;
 
   pos cursor = 0;
   pos width = 0;
@@ -34,44 +34,44 @@ private:
 };
 
 inline
-const Screen::content_type &Screen::get(pos row, pos col) const {
+const Screen::content_type& Screen::get(pos row, pos col) const {
   return contents[row * width + col];
 }
 
 inline
-Screen &Screen::set(content_type c) {
+Screen& Screen::set(content_type c) {
   contents[cursor] = c;
   return *this;
 }
 
 inline
-Screen &Screen::set(pos row, pos col, content_type c) {
+Screen& Screen::set(pos row, pos col, content_type c) {
   contents[row * width + col] = c;
   return *this;
 }
 
 inline
-Screen &Screen::move(pos row, pos col) {
+Screen& Screen::move(pos row, pos col) {
   cursor = row * width + col;
   return *this;
 }
 
 inline
-const Screen &Screen::display(ostream &os) const {
-  cout << "Const Screen &Screen::display :" << endl;
+const Screen& Screen::display(ostream& os) const {
+  cout << "Const Screen& Screen::display :" << endl;
   do_display(os);
   return *this;
 }
 
 inline
-Screen &Screen::display(ostream &os) {
-  cout << "Screen &Screen::display :" << endl;
+Screen& Screen::display(ostream& os) {
+  cout << "Screen& Screen::display :" << endl;
   do_display(os);
   return *this;
 }
 
 inline
-void Screen::do_display(ostream &os) const {
+void Screen::do_display(ostream& os) const {
   for (pos i = 0; i != contents.size(); ++i) {
     os << contents[i];
     if ((i + 1) % width == 0 && i + 1 != contents.size())

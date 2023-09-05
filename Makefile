@@ -15,6 +15,7 @@ all:
 	cd chapter8 && make
 	cd chapter9 && make
 	cd chapter10 && make
+	cd miscellaneous && make
 
 clean:
 	cd chapter1 && make clean
@@ -27,3 +28,4 @@ clean:
 	cd chapter8 && make clean
 	cd chapter9 && make clean
 	cd chapter10 && make clean
+	cd miscellaneous && make clean

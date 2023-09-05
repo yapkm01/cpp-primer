@@ -14,7 +14,7 @@ int main() {
     auto c = cr;   // c is int = 0
     auto d = &i;   // d is an int* = address of i = 0
     auto e = &ci;  // e is a const int* = address of ci = 0
-    auto &g = ci;  // g is a  const int& = reference to ci = 0
+    auto& g = ci;  // g is a  const int& = reference to ci = 0
 
     std::cout << "Initial definitions & values:" << std::endl
 	      << "auto a = " << typeid(a).name() <<  ". a = " << a << endl

@@ -1,20 +1,22 @@
 
+#
 # General Makefile
 #
 
-CXXFLAG=-std=c++20 -I.
+BUILD=../build
+CXXFLAG=-std=c++20
 CXX=g++
-DEPS=
+DEPS=../include
 OBJ=lambda_captures.o
-
-%.o: %.cc $(DEPS)
-	-$(CXX) -c -o $@ $< $(CXXFLAG)
-	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
 
 all: $(OBJ)
 
-.PHONY: clean
+%.o: %.cc $(DEPS)
+	mkdir -p $(BUILD)
+	-$(CXX) -c $< -o $(BUILD)/$@ $(CXXFLAG) -I$(DEPS)
+	-$(CXX) -o $(BUILD)/$(patsubst %.o,%,$@) $(BUILD)/$@ $(CXXFLAG) -I$(DEPS)
+
+.PHONY: all
 
 clean:
-	find . -type f |grep -Ev "cc$$|h$$|Makefile" |xargs rm -f
-
+	find $(BUILD) -type f |grep "lambda" |xargs rm -f

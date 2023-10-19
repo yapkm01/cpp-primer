@@ -71,7 +71,7 @@ int main() {
         total.combine(trans);
       } else {
         print(cout, total) << endl;
-        total = trans;  // Use default copy constructor
+        total = trans;
       }
       read(cin, trans);
     }

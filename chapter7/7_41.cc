@@ -41,7 +41,7 @@ Sales_data& Sales_data::combine(const Sales_data& rhs) {
 }
 
 Sales_data add(const Sales_data& lhs, const Sales_data& rhs) {
-  Sales_data sum = lhs;  // Use default copy constructor
+  Sales_data sum = lhs;
   sum.combine(rhs);
   return sum;
 }
@@ -83,7 +83,7 @@ int main() {
         total.combine(trans);
       } else {
         print(cout, total) << endl;
-        total = trans;  // Use default copy constructor
+        total = trans;
       }
       read(cin, trans);
     }

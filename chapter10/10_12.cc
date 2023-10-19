@@ -5,9 +5,11 @@
 #include "include/Sales_data.h"
 using namespace std;
 
+/*
 bool compareIsbn(const Sales_data& sd1, const Sales_data& sd2) {
     return sd1.isbn().size() < sd2.isbn().size();
 }
+*/
 
 int main() {
     Sales_data d1("aa"), d2("aaaa"), d3("aaa"), d4("z"), d5("aaaaz");

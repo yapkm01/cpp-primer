@@ -2,38 +2,38 @@
 # General Makefile
 #
 
+MKDIR_P=mkdir -p
+BUILD=build
 CXXFLAG=-std=c++20
 CXX=g++
-DEPS=./include/Sales_data.h
-OBJ=10_1.o 10_2.o 10_3.o 10_4.o 10_5.o 10_6.o 10_7a.o 10_7b.o 10_9.o 10_11.o 10_13.o 10_16.o 10_18.o 10_19.o \
-    10_20.o 10_21.o 10_22.o 10_24.o 10_25.o 10_27.o 10_28.o
+DEPS=./include
+OBJ=10_1.o 10_2.o 10_3.o 10_4.o 10_5.o 10_6.o 10_7a.o 10_7b.o 10_9.o 10_11.o 10_12.o 10_13.o 10_16.o \
+    10_17.o 10_18.o 10_19.o 10_20.o 10_21.o 10_22.o 10_24.o 10_25.o 10_27.o 10_28.o 10_29.o 10_30.o 10_31.o
+OBJ_OTR=10_12.o 10_17.o 10_32.o
 
-all: $(OBJ) 10_12 10_17 samples
+all: directories Sales_data $(OBJ) $(OBJ_OTR) samples
 
-%.o: %.cc
-	-$(CXX) -c -o $@ $< $(CXXFLAG)
-	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
+directories: $(BUILD)
 
-Sales_data.o: Sales_data.cc $(DEPS)
-	-$(CXX) -c -o $@ $< $(CXXFLAG)
+$(BUILD):
+	$(MKDIR_P) $(BUILD)
 
-10_12.o: 10_12.cc $(DEPS)
-	-$(CXX) -c -o $@ $< $(CXXFLAG)
+Sales_data: Sales_data.cc $(DEPS)
+	-$(CXX) -c $< -o $(BUILD)/$@.o $(CXXFLAG) -I$(DEPS)
 
-10_12: Sales_data.o 10_12.o
-	-$(CXX) -o $@ Sales_data.o 10_12.o $(CXXFLAG)
+$(filter %.o, $(OBJ_OTR)): %.o : %.cc
+	-$(CXX) -c $< -o $(BUILD)/$@ $(CXXFLAG) -I$(DEPS)
+	-$(CXX) -o $(BUILD)/$(patsubst %.o,%,$@) $(BUILD)/$@ $(BUILD)/Sales_data.o $(CXXFLAG) -I$(DEPS)
 
-10_17.o: 10_17.cc $(DEPS)
-	-$(CXX) -c -o $@ $< $(CXXFLAG)
+%.o: %.cc $(DEPS)
+	-$(CXX) -c $< -o $(BUILD)/$@ $(CXXFLAG) -I$(DEPS)
+	-$(CXX) -o $(BUILD)/$(patsubst %.o,%,$@) $(BUILD)/$@ $(CXXFLAG) -I$(DEPS)
 
-10_17: Sales_data.o 10_17.o
-	-$(CXX) -o $@ Sales_data.o 10_17.o $(CXXFLAG)
-
-.PHONY: all samples clean
+.PHONY: directories all samples clean Sales_data
 
 samples: 
 	cd samples && make
 
 clean:
-	find . -type f -not -path "./samples/*" |grep -Ev "cc$$|md$$|txt$$|h$$|Makefile" |xargs rm -f
+	find $(BUILD) -type f -not -path "./samples/*" |grep -Ev "cc$$|md$$|txt$$|h$$|Makefile|lambda" |xargs rm -f 
 	cd samples && make clean

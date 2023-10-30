@@ -5,16 +5,16 @@ Sales_data::Sales_data(istream& is) {
 	read(is, *this);
 }
 
-Sales_data& Sales_data::combine(const Sales_data& rhs) {
-  units_sold += rhs.units_sold;
-  revenue += rhs.revenue;
-  return *this;
+Sales_data& Sales_data::operator+(const Sales_data& item) {
+    units_sold += item.units_sold;
+    revenue += item.revenue;
+    return *this;
 }
 
-Sales_data& Sales_data::operator+=(const Sales_data& rhs) {
-    units_sold += rhs.units_sold;
-    revenue += rhs.revenue;
-    return *this;
+Sales_data& Sales_data::combine(const Sales_data& item) {
+  units_sold += item.units_sold;
+  revenue += item.revenue;
+  return *this;
 }
 
 double Sales_data::avg_price() const {
@@ -46,18 +46,6 @@ bool operator!=(const Sales_data& lhs, const Sales_data& rhs) {
     return !(lhs == rhs);
 }
 
-Sales_data operator+(const Sales_data& lhs, const Sales_data& rhs) { 
-    Sales_data ret(lhs);
-    ret += rhs;
-    return ret;
-}
-
-Sales_data add(const Sales_data& lhs, const Sales_data& rhs) {
-  Sales_data sum = lhs;
-  sum.combine(rhs);
-  return sum;
-}
-
 istream& read(istream& is, Sales_data& item) {
   double price;
   is >> item.bookNo >> item.units_sold >> price;
@@ -71,4 +59,8 @@ ostream& print(ostream& os, const Sales_data& item) {
   return os;
 }
 
-
+Sales_data add(const Sales_data& lhs, const Sales_data& rhs) {
+  Sales_data sum = lhs;
+  sum.combine(rhs);
+  return sum;
+}

@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    ifstream ifs("./book.txt");
+    ifstream ifs("../data/book.txt");
     istream_iterator<string> in(ifs), eof;
     vector<string> vec;
     copy(in, eof, back_inserter(vec));

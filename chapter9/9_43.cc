@@ -4,7 +4,7 @@
 #include <cstddef>
 using namespace std;
 
-auto replace_with(string& s, string const& oldVal, string const& newVal) {
+auto replace_with(string& s, const string& oldVal, const string& newVal) {
 	for (auto cur = s.begin(); cur <= s.end() - oldVal.size(); )
 		if (oldVal == string{ cur, cur + oldVal.size() })
 			cur = s.erase(cur, 

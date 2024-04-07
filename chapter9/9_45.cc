@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-auto add_pre_and_suffix(string name, string const& pre, string const& su) {
+auto add_pre_and_suffix(string name, const string& pre, const string& su) {
 	name.insert(name.begin(), pre.cbegin(), pre.cend());
 	return name.append(su);
 }

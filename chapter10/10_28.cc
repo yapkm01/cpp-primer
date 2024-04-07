@@ -5,8 +5,8 @@
 #include <iterator>
 using namespace std;
 
-template<typename Sequence>
-void print(Sequence const& seq) {
+template<typename sequence>
+void print(const sequence& seq) {
     for (const auto& i : seq)
         cout << i << " ";
     cout << endl;

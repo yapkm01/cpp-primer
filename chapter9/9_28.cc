@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-void find_and_insert(forward_list<string>& list, string const& to_find, string const& to_add) {
+void find_and_insert(forward_list<string>& list, const string& to_find, const string& to_add) {
 	auto prev = list.before_begin();
 	for (auto curr = list.begin(); curr != list.end(); prev = curr++)
 		if (*curr == to_find) {

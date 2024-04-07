@@ -3,16 +3,16 @@
 #include <vector>
 using namespace std;
 
-auto sum_for_int(vector<string> const& v) {
+auto sum_for_int(const vector<string>& v) {
 	int sum = 0;
-	for (auto const& s : v)
+	for (const auto& s : v)
 		sum += stoi(s);
 	return sum;
 }
 
-auto sum_for_float(vector<string> const& v) {
+auto sum_for_float(const vector<string>& v) {
 	float sum = 0.0;
-	for (auto const& s : v)
+	for (const auto& s : v)
 		sum += stof(s);
 	return sum;
 }

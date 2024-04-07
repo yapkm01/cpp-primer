@@ -2,14 +2,14 @@
 #include <string>
 using namespace std;
 
-auto add_pre_and_suffix(std::string name, std::string const& pre, std::string const& su) {
+auto add_pre_and_suffix(string name, const string& pre, const string& su) {
 	name.insert(0, pre);
 	name.insert(name.size(), su);
 	return name;
 }
 
 int main() {
-	std::string name("alan");
-	std::cout << add_pre_and_suffix(name, "Mr.", ",Jr.");
+	string name("alan");
+	cout << add_pre_and_suffix(name, "Mr.", ",Jr.");
 	return 0;
 }

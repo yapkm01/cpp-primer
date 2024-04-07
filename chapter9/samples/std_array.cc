@@ -2,7 +2,7 @@
 #include <array>
 using namespace std;
 
-void sq(array <int,4> &ar) { // using reference
+void sq(array <int,4>& ar) { // using reference
 	for (auto iter=ar.begin(); iter != ar.end(); iter++)
 		*iter = *iter * *iter;
 }

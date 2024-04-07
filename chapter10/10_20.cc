@@ -5,12 +5,12 @@ using namespace std;
 
 auto closure_wrapper() {
     int max_length = 6;
-    return [max_length](string const& s) {
+    return [max_length](const string& s) {
 	    return s.size() > (max_length);
     };
 }
 
-size_t biggerThan6(vector<string> const& v) {
+size_t biggerThan6(const vector<string>& v) {
     return count_if(v.cbegin(), v.cend(), closure_wrapper());
 }
 

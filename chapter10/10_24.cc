@@ -5,7 +5,7 @@
 using namespace std;
 using namespace placeholders;
 
-auto check_size(string const& str, size_t sz) {
+auto check_size(const string& str, size_t sz) {
     return str.size() < sz;
 }
 

@@ -21,13 +21,13 @@ void biggies(vector<string>& vs, size_t sz) {
     println(vs);
 
     // sort by size, but maintain alphabetical order for same size
-    stable_sort(vs.begin(), vs.end(), [](string const& lhs, string const& rhs){
+    stable_sort(vs.begin(), vs.end(), [](const string& lhs, const string& rhs){
         return lhs.size() < rhs.size();
     });
     println(vs);
 
     // get an iterator to the first one whose size() is >= sz
-    auto wc = find_if(vs.begin(), vs.end(), [sz](string const& s){
+    auto wc = find_if(vs.begin(), vs.end(), [sz](const string& s){
             return s.size() >= sz;
     });
         

@@ -8,7 +8,7 @@ int main() {
 	if (!ifs) return -1;
 
 	string longest;
-	auto update_with = [&longest](string const& curr) {
+	auto update_with = [&longest](const string& curr) {
 		if (string::npos == curr.find_first_not_of("aceimnorsuvwxz"))
 			longest = longest.size() < curr.size() ? curr : longest;
 	};

@@ -13,7 +13,7 @@ int main() {
 				 return sd1.isbn().size() < sd2.isbn().size();
 			       });
 
-    for(const auto& element : v)
+    for (const auto& element : v)
         cout << element.isbn() << " " << element.avg_price() << endl;
 
     return 0;

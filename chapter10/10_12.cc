@@ -17,7 +17,7 @@ int main() {
 
     sort(v.begin(), v.end(), compareIsbn);
 
-    for(const auto& element : v)
+    for (const auto& element : v)
         cout << element.isbn() << " " << element.avg_price() << endl;
 
     return 0;

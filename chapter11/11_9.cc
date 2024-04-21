@@ -10,7 +10,7 @@ int main() {
 
 	for (const auto& w : words) {
 		cout << w.first << ":";
-		for (const auto &l : w.second)
+		for (const auto& l : w.second)
 			cout << " " << l;
 		cout << endl;
 	}

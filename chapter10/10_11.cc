@@ -5,7 +5,7 @@ using namespace std;
 
 template<typename T>
 inline ostream& println(const T& seq) {
-    for(const auto& elem : seq) cout << elem << " ";
+    for (const auto& elem : seq) cout << elem << " ";
     cout << endl;
     return cout;
 }

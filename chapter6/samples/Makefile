@@ -2,18 +2,21 @@
 # General Makefile
 #
 
-CXXFLAG=-std=c++20 -I.
+BUILD=../build
+CXXFLAG=-std=c++20 -I
 CXX=g++
-DEPS=
+DEPS=../include
 OBJ=async_callback_funcptr.o function_pointer local_static_var
 
-%.o: %.cc $(DEPS)
-	-$(CXX) -c -o $@ $< $(CXXFLAG)
+PREFIX_OBJ=$(addprefix $(BUILD)/, $(OBJ))
+
+all: $(PREFIX_OBJ)
+
+$(BUILD)/%.o: %.cc $(DEPS)
+	-$(CXX) -c -o $@ $< $(CXXFLAG) $(DEPS)
 	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
 
-all: $(OBJ)
-
-.PHONY: clean
+.PHONY: all clean
 
 clean:
 	find . -type f |grep -Ev "cc$$|h$$|Makefile" |xargs rm -f

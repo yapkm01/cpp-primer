@@ -1,23 +1,29 @@
-
 #
 # General Makefile
 #
 
+MKDIR_P=mkdir -p
 BUILD=../build
-CXXFLAG=-std=c++20
+CXXFLAG=-std=c++20 -I.
 CXX=g++
 DEPS=../include
 OBJ=
 
-PREFIX_OBJ=$(addprefix $(BUILD)/, $(OBJ))
+PREFIX_BUILD_OBJ=$(addprefix $(BUILD)/, $(OBJ))
+STRIP_O=$(PREFIX_BUILD_OBJ:%.o=%)
 
-all: $(PREFIX_OBJ)
+all: directories $(PREFIX_BUILD_OBJ)
+
+directories:
+	$(MKDIR_P) $(BUILD)
 
 $(BUILD)/%.o: %.cc $(DEPS)
-	-$(CXX) -c $< -o $(BUILD)/$@ $(CXXFLAG) -I$(DEPS)
-	-$(CXX) -o $(BUILD)/$(patsubst %.o,%,$@) $(BUILD)/$@ $(CXXFLAG) -I$(DEPS)
+	-$(CXX) -c -o $@ $< $(CXXFLAG) -I$(DEPS)
+	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG) -I$(DEPS)
 
-.PHONY: all clean
+.PHONY: directories all clean
 
 clean:
-	find $(BUILD) -type f |grep "lambda" |xargs rm -f
+	for n in $(STRIP_O); do \
+	  rm $$n* 2>/dev/null || true;  \
+	done

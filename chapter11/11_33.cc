@@ -12,7 +12,7 @@ map<string, string> buildMap(ifstream& map_file) {
     return trans_map;
 }
 
-const string & transform(const string& s, const map<string, string>& m) {
+const string& transform(const string& s, const map<string, string>& m) {
     auto map_it = m.find(s);
     return map_it == m.cend() ? s : map_it->second;
 }

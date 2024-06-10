@@ -7,7 +7,7 @@ int multiply(int x, int y) {
 }
 
 int main() {
-    typedef decltype(multiply) *FP;
+    typedef decltype(multiply)* FP;
     vector<FP> my_vec = {10, multiply};
     int multiplier = 5;
 

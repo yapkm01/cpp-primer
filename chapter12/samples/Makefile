@@ -7,7 +7,7 @@ BUILD=../build
 CXXFLAG=-std=c++20 -I.
 CXX=g++
 DEPS=../include
-OBJ=async_callback_funcptr.o function_pointer.o local_static_var.o
+OBJ=
 
 PREFIX_BUILD_OBJ=$(addprefix $(BUILD)/, $(OBJ))
 STRIP_O=$(PREFIX_BUILD_OBJ:%.o=%)

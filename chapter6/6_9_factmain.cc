@@ -1,5 +1,5 @@
 #include<iostream>
-#include "./include/6_9.h"
+#include "include/6_9.h"
 using namespace std;
 
 int main() {
@@ -7,7 +7,6 @@ int main() {
          << "Enter an integer: ";
     int userInput;
     cin >> userInput;
-
     cout << userInput << "! = " << fact(userInput) << endl;
     return 0;
 }

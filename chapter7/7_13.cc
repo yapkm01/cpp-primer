@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./include/7_13.h"
+#include "include/7_13.h"
 using namespace std;
 
 int main() {

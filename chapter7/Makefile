@@ -4,7 +4,7 @@
 
 MKDIR_P=mkdir -p
 BUILD=build
-CXXFLAG=-std=c++20 -I.
+CXXFLAG=-std=c++20
 CXX=g++
 DEPS=include
 OBJ=7_1.o 7_3.o 7_7.o 7_11.o 7_13.o 7_21.o 7_22.o 7_23.o 7_26.o 7_27.o 7_29.o 7_31.o 7_32.o 7_35.o 7_38.o 7_41.o \

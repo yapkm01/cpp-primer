@@ -6,6 +6,7 @@ struct foo {
     foo() = default;
     int a;
 };
+
 struct bar {
     bar();
     int b;

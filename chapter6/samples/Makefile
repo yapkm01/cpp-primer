@@ -4,7 +4,7 @@
 
 MKDIR_P=mkdir -p
 BUILD=../build
-CXXFLAG=-std=c++20 -I.
+CXXFLAG=-std=c++20
 CXX=g++
 DEPS=../include
 OBJ=async_callback_funcptr.o function_pointer.o local_static_var.o

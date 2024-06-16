@@ -2,31 +2,37 @@
 # General Makefile
 #
 
-CXXFLAG=-std=c++20 -I.
+MKDIR_P=mkdir -p
+BUILD=build
+CXXFLAG=-std=c++20
 CXX=g++
-DEPS=./include/hello_world.h
+DEPS=include
+OBJ=def_val_zero_init.o s_values_init.o use_hello_world
 SHARED_OBJ=hello_world
-OBJ=def_val_zero_init s_values_init use_hello_world
 
-%.o: %.cc $(DEPS)
-	$(CXX) -c -o $@ $< $(CXXFLAG)
+PREFIX_BUILD_OBJ=$(addprefix $(BUILD)/, $(OBJ))
+STRIP_O=$(PREFIX_BUILD_OBJ:%.o=%)
 
-all: ${OBJ}
+all: directories $(PREFIX_BUILD_OBJ)
 
-def_val_zero_init: def_val_zero_init.o
-	$(CXX) -o $@ $< $(CXXFLAG)
+directories:
+	$(MKDIR_P) $(BUILD)
 
-s_values_init: s_values_init.o
-	$(CXX) -o $@ $< $(CXXFLAG)
+$(BUILD)/%.o: %.cc
+	-$(CXX) -c -o $@ $< $(CXXFLAG)
+	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
 
-hello_world.o: hello_world.cc
-	$(CXX) -c -o $@ $< $(CXXFLAG)
-	$(CXX) -shared -o lib$(patsubst %.o,%,$@).so $@ $(CXXFLAG) -fPIC
+$(BUILD)/use_hello_world.o: use_hello_world.cc
+	-$(CXX) -c -o $@ $< $(CXXFLAG)
 
-use_hello_world: use_hello_world.o hello_world.o
-	$(CXX) -o $@ $< -L. -Wl,-rpath=. -Wall -l$(SHARED_OBJ) $(CXXFLAG)
+$(BUILD)/hello_world.o: hello_world.cc
+	-$(CXX) -c -o $@ $< $(CXXFLAG) -I$(DEPS)
+	-$(CXX) -shared -o $(patsubst $(BUILD)/%.o,$(BUILD)/lib%,$@).so $@ $(CXXFLAG) -I$(DEPS)
 
-.PHONY: all clean
+$(BUILD)/use_hello_world: $(BUILD)/use_hello_world.o $(BUILD)/hello_world.o $(DEPS)
+	-$(CXX) -o $@ $< -L$(BUILD) -Wl,-rpath=$(BUILD) -Wall -l$(SHARED_OBJ) $(CXXFLAG)
+
+.PHONY: directories all clean
 
 clean:
-	find . -type f |grep -Ev "cc$$|md$$|txt$$|h$$|Makefile" |xargs rm -f
+	rm $(BUILD)/* 2>/dev/null || true;

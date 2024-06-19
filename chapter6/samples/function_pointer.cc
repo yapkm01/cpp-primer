@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-void print_even_num(const int *, const int *);
-void print_odd_num(const int *, const int *);
-void (*fn)(const int *, const int *);
+void print_even_num(const int*, const int*);
+void print_odd_num(const int*, const int*);
+void (*fn)(const int*, const int*);
 
 int main() {
 
@@ -17,7 +17,7 @@ int main() {
 
 }
 
-void print_even_num(const int *beg, const int *end) {
+void print_even_num(const int* beg, const int* end) {
 	while (beg != end) {
 		if (*beg % 2 == 0) {
 			cout << "Even number :- " << *beg << endl;
@@ -26,7 +26,7 @@ void print_even_num(const int *beg, const int *end) {
 	}
 }
 
-void print_odd_num(const int *beg, const int *end) {
+void print_odd_num(const int* beg, const int* end) {
 	while (beg != end) {
 		if (*beg % 2 != 0) {
 			cout << "Odd number :- " << *beg << endl;

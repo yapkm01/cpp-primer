@@ -2,22 +2,32 @@
 # General Makefile
 #
 
-CXXFLAG=-std=c++20 -I.
+MKDIR_P=mkdir -p
+BUILD=build
+CXXFLAG=-std=c++20
 CXX=g++
-DEPS=./include/2_42.h
+DEPS=include
 OBJ=2_4.o 2_8a.o 2_8b.o 2_18.o 2_34.o 2_35.o 2_39.o 2_41a.o 2_41b.o 2_41c.o 2_41d.o 2_41e.o 2_42a.o 2_42b.o 2_42c.o 2_42d.o  
 
-%.o: %.cc $(DEPS)
-	-$(CXX) -c -o $@ $< $(CXXFLAG)
-	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
+PREFIX_BUILD_OBJ=$(addprefix $(BUILD)/, $(OBJ))
+STRIP_O=$(PREFIX_BUILD_OBJ:%.o=%)
 
-all: $(OBJ) samples
+all: directories $(PREFIX_BUILD_OBJ) samples
 
-.PHONY: all samples clean
+directories:
+	$(MKDIR_P) $(BUILD)
+
+$(BUILD)/%.o: %.cc $(DEPS)
+	-$(CXX) -c -o $@ $< $(CXXFLAG) -I$(DEPS)
+	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG) -I$(DEPS)
+
+.PHONY: directories all samples clean
 
 samples: 
 	cd samples && make
 
 clean:
-	find . -type f -not -path "./samples/*" |grep -Ev "cc$$|md$$|txt$$|h$$|Makefile" |xargs rm -f
+	for n in $(STRIP_O); do \
+	  rm $$n* 2>/dev/null || true;  \
+	done
 	cd samples && make clean

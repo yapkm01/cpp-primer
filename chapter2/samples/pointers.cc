@@ -2,7 +2,7 @@
 using namespace std;
 
 // global pointer - default initalization
-int *ipg;
+int* ipg;
 
 int main() {
 
@@ -10,16 +10,16 @@ int main() {
 	cout << ipg << endl;
 
 	// uninitialized pointer
-	int *ipu;
+	int* ipu;
 	cout << ipu << endl;
 
 	// null pointer
-	int *ipn = nullptr;
+	int* ipn = nullptr;
 	cout << ipn << endl;
 
 	int i = 20;
-	int *ip1 = &i;
-	int *ip2 = ip1;
+	int* ip1 = &i;
+	int* ip2 = ip1;
 	cout << i << " " << ip1 << " " << *ip1 << " " << ip2 << " " << *ip2 << endl;
 
 	return 0;

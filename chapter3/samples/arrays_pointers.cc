@@ -5,7 +5,7 @@ using namespace std;
 int main() {
 
 	int arr0[4] = {7,2,3,4};
-	int *p1 = arr0;
+	int* p1 = arr0;
 
 	// pointer section
 	
@@ -78,8 +78,8 @@ int main() {
 
 	using int_array = int[4];
 
-	for (int_array *p = arr1; p != arr1 + 3; ++p) {
-		for (int *q = *p; q != *p + 4; ++q)
+	for (int_array* p = arr1; p != arr1 + 3; ++p) {
+		for (int* q = *p; q != *p + 4; ++q)
 			cout << *q << " ";
 		cout << endl;
 	}
@@ -98,7 +98,7 @@ int main() {
 
 	cout << "**** test 8 ****" << endl;
 
-	for (auto &row : arr1) {
+	for (auto& row : arr1) {
 		for (auto col: row)
 			cout << col << " ";
 		cout << endl;
@@ -106,8 +106,8 @@ int main() {
 
 	cout << "**** test 9 ****" << endl;
 
-	for (auto &row : arr1) {
-		for (auto &col: row) {
+	for (auto& row : arr1) {
+		for (auto& col: row) {
 			col = col * 2;
 			cout << col << " ";
 		}

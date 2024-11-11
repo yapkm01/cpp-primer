@@ -2,32 +2,32 @@
 #define PERSON_H
 
 #include <istream>
+#include <ostream>
 #include <string>
-using namespace std;
 
 struct Person {
-    string name;
-    string address;
-    auto get_name() const -> string;
-    auto get_address() const -> string;
-    auto read(istream &input, Person &person) -> istream &;
-    auto print(ostream &output, const Person &person) -> ostream &;
+    std::string name;
+    std::string address;
+    auto get_name() const -> std::string;
+    auto get_address() const -> std::string;
+    auto read(std::istream& input, Person& person) -> std::istream&;
+    auto print(std::ostream& output, const Person& person) -> std::ostream&;
 }; 
 
-string Person::get_name() const {
+std::string Person::get_name() const {
 	return this -> name;
 }
 
-string Person::get_address() const {
+std::string Person::get_address() const {
 	return this -> address;
 }
 
-istream &read(istream &input, Person &person) {
+std::istream& read(std::istream& input, Person& person) {
     input >> person.name >> person.address;
     return input;
 }
 
-ostream &print(ostream &output, const Person &person) {
+std::ostream& print(std::ostream& output, const Person& person) {
     output << person.name << " " << person.address;
     return output;
 }

@@ -4,6 +4,7 @@ using namespace std;
 
 int main() {
     const StrBlob csb{ "hello", "world", "pezy" };
+    csb.push_back("sss");
     StrBlob sb{ "hello", "world", "Mooophy" };
 
     cout << csb.front() << " " << csb.back() << endl;

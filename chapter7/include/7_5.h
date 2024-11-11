@@ -2,20 +2,19 @@
 #define PERSON_H
 
 #include <string>
-using namespace std;
 
 struct Person {
-    string name;
-    string address;
-    auto get_name() const -> string;
-    auto get_address() const -> string;
+    std::string name;
+    std::string address;
+    auto get_name() const -> std::string;
+    auto get_address() const -> std::string;
 }; 
 
-string Person::get_name() const {
+std::string Person::get_name() const {
 	return this -> name;
 }
 
-string Person::get_address() const {
+std::string Person::get_address() const {
 	return this -> address;
 }
 

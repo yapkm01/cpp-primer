@@ -2,11 +2,10 @@
 #define PERSON_H
 
 #include <string>
-using namespace std;
 
 struct Person {
-    string name;
-    string address;
+    std::string name;
+    std::string address;
 };
 
 #endif

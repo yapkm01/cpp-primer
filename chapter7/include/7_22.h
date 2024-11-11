@@ -2,56 +2,56 @@
 #define PERSON_V_H
 
 #include <istream>
+#include <ostream>
 #include <string>
-using namespace std;
 
 // Forward declaration
 class Person;
-istream &read(istream &input, Person &person);
-ostream &print(ostream &output, const Person &person);
+std::istream& read(std::istream& input, Person& person);
+std::ostream& print(std::ostream& output, const Person& person);
 
 class Person {
 
-friend istream &read(istream &input, Person &person);
-friend ostream &print(ostream &output, const Person &person);
+friend std::istream& read(std::istream& input, Person& person);
+friend std::ostream& print(std::ostream& output, const Person& person);
 
 private:
-    string name;
-    string address;
+    std::string name;
+    std::string address;
 
 public:
     Person() = default;
 
-    Person(const string name, const string address)
+    Person(const std::string name, const std::string address)
         : name(name)
         , address(address)
     {}
 
-    Person(istream &input) {
+    Person(std::istream& input) {
         read(input, *this);
     }
 
-    string get_name() const;
-    string get_address() const;
+    std::string get_name() const;
+    std::string get_address() const;
 
 };
 
-string Person::get_name() const {
+std::string Person::get_name() const {
     return this->name;
 }
 
-string Person::get_address() const {
+std::string Person::get_address() const {
     return this->address;
 }
 
-istream &read(istream &input, Person &person) {
+std::istream& read(std::istream& input, Person& person) {
     // Grab data one line at a time (to allow for spaces)
     getline(input, person.name);
     getline(input, person.address);
     return input;
 }
 
-ostream &print(ostream &output, const Person &person) {
+std::ostream& print(std::ostream& output, const Person& person) {
     output << person.name << " " << person.address;
     return output;
 }

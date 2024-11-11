@@ -3,21 +3,20 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 struct Sales_data {
-        string book_no;
+        std::string book_no;
         unsigned units_sold = 0;
         double price = 0.;
         double revenue = 0.;
 
 	Sales_data& operator+=(const Sales_data&);
 	Sales_data& operator+(const Sales_data&);
-	string isbn () const;
+	std::string isbn () const;
 	double avg_price() const;
 };
 
-string Sales_data::isbn() const {
+std::string Sales_data::isbn() const {
 	return book_no;
 }
 
@@ -33,7 +32,7 @@ Sales_data& Sales_data::operator+(const Sales_data& rhs) {
 	return *this;
 }
 
-istream& operator>>(istream& in, Sales_data& s) {
+std::istream& operator>>(std::istream& in, Sales_data& s) {
 	if (in) {
 		in >> s.book_no >> s.units_sold >> s.price;
 		s.revenue = s.units_sold * s.price;
@@ -41,7 +40,7 @@ istream& operator>>(istream& in, Sales_data& s) {
 	return in;
 }
 
-ostream& operator<<(ostream& out, Sales_data& s) {
+std::ostream& operator<<(std::ostream& out, Sales_data& s) {
 	if (out) {
 		out << s.book_no << " " << s.units_sold << " " << s.price
 		    << " " << s.revenue;

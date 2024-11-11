@@ -2,22 +2,21 @@
 #define SALES_DATA_H
 
 #include <string>
-using namespace std;
 
 struct Sales_data {
-    string bookNo;
+    std::string bookNo;
     unsigned units_sold = 0;
     double revenue = 0.0;
-    string isbn() const;
-    Sales_data &combine(const Sales_data &transaction);
+    std::string isbn() const;
+    Sales_data& combine(const Sales_data& transaction);
 
 };
 
-string Sales_data::isbn() const {
+std::string Sales_data::isbn() const {
     return this->bookNo;
 }
 
-Sales_data &Sales_data::combine(const Sales_data &transaction) {
+Sales_data& Sales_data::combine(const Sales_data& transaction) {
     if (this->isbn() == transaction.isbn()) {
         this->units_sold += transaction.units_sold;
         this->revenue += transaction.revenue;

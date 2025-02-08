@@ -1,11 +1,18 @@
+/*
+ * Exercise 16.4:
+ * Write a template that acts like the library find algorithm.
+ * The function will need two template type parameters, one to represent the
+ * function's iterator parameters and the other for the type of the value. Use
+ * your function to find a given value in a vector<int> and in a list<string>.
+ */
+
 #include <iostream>
 #include <vector>
 #include <list>
-#include <string>
 using namespace std;
 
-template<typename Iterator, typename Value>
-auto find(Iterator first, Iterator last, const Value& value) {
+template<typename Iterator, typename V>
+auto find(Iterator first, Iterator last, const V& value) {
     for (; first != last && *first != value; ++first);
     return first;
 }

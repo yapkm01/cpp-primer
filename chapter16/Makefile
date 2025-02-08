@@ -7,7 +7,7 @@ BUILD=build
 CXXFLAG=-std=c++20
 CXX=g++
 DEPS=include
-OBJ=16_2.o 16_4.o 16_5.o
+OBJ=16.2.o 16.3.o 16.4.o 16.5.o 16.6.o 16.7.o
 
 PREFIX_BUILD_OBJ=$(addprefix $(BUILD)/, $(OBJ))
 STRIP_O=$(PREFIX_BUILD_OBJ:%.o=%)

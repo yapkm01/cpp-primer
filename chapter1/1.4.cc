@@ -1,4 +1,3 @@
-
 /*
  * Exercise 1.4:
  * Our program used the addition operator, +, to add two numbers.

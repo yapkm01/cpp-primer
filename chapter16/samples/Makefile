@@ -7,7 +7,7 @@ BUILD=../build
 CXXFLAG=-std=c++20
 CXX=g++
 DEPS=../include
-OBJ=
+OBJ=general_friendship.o type_friendship.o
 
 PREFIX_BUILD_OBJ=$(addprefix $(BUILD)/, $(OBJ))
 STRIP_O=$(PREFIX_BUILD_OBJ:%.o=%)

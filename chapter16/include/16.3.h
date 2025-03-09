@@ -1,7 +1,7 @@
-#ifndef SALES_DATA_H
-#define SALES_DATA_H
-
 #include <iostream>
+
+#ifndef _16_3_
+#define _16_3_
 
 class Sales_data {
   friend std::istream& read(std::istream&, Sales_data&);
@@ -11,22 +11,22 @@ class Sales_data {
   friend bool operator==(const Sales_data&, const Sales_data&);
   friend Sales_data operator+(const Sales_data&, const Sales_data&);
 
-public:
-  Sales_data() = default;
-  Sales_data(const std::string& no) : bookNo(no) {}
-  Sales_data(const std::string& no, unsigned us, double price)
-      : bookNo(no), units_sold(us), revenue(price * us) {}
-  Sales_data(std::istream& is);
+  public:
+  	Sales_data() = default;
+  	Sales_data(const std::string& no) : bookNo(no) {}
+  	Sales_data(const std::string& no, unsigned us, double price)
+      		: bookNo(no), units_sold(us), revenue(price * us) {}
+  	Sales_data(std::istream& is);
 
-  Sales_data& operator+(const Sales_data&);
-  Sales_data& combine(const Sales_data&);
-  std::string isbn() const {return bookNo;}
-  double avg_price() const;
+  	Sales_data& operator+(const Sales_data&);
+  	Sales_data& combine(const Sales_data&);
+  	std::string isbn() const {return bookNo;}
+  	double avg_price() const;
 
-private:
-  std::string bookNo;
-  unsigned units_sold = 0;
-  double revenue = 0.0;
+  private:
+ 	std::string bookNo;
+  	unsigned units_sold = 0;
+  	double revenue = 0.0;
 };
 
 inline bool compareIsbn(const Sales_data& lhs, const Sales_data& rhs) {

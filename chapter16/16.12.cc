@@ -4,7 +4,7 @@
  * various const members that were not shown in the text.
  */
 
-#include "include/16.12.h"
+#include "16.12.h"
 #include <iostream>
 using namespace std;
 

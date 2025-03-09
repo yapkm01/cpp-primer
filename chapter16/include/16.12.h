@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 
-#ifndef BLOB_H
-#define BLOB_H
+#ifndef _16_12_
+#define _16_12_
 
 // forward declarations
 template <typename> class BlobPtr;
@@ -13,12 +13,16 @@ template <typename T>
 bool operator==(const Blob<T>&, const Blob<T>&);
 template <typename T>
 bool operator!=(const Blob<T>&, const Blob<T>&);
+template <typename T>
+bool operator<(const Blob<T>&, const Blob<T>&);
 
+// Blob class
 template <typename T>
 class Blob {
 	friend class BlobPtr<T>;
 	friend bool operator==<T>(const Blob<T>&, const Blob<T>&);
 	friend bool operator!=<T>(const Blob<T>&, const Blob<T>&);
+	friend bool operator< <T>(const Blob<T>&, const Blob<T>&);
 	public:
 		typedef T value_type;
 		typedef typename std::vector<T>::size_type size_type;
@@ -93,11 +97,12 @@ bool operator!=(const Blob<T>& lhs, const Blob<T>& rhs) {
 	return !(lhs == rhs);
 }
 
-#endif
+template <typename T>
+bool operator<(const Blob<T>& lhs, const Blob<T>& rhs) {
+	return *(lhs.data) < *(rhs.data);
+}
 
-#ifndef BLOBPTR_H
-#define BLOBPTR_H
-
+// BlobPtr class
 template <typename T>
 class BlobPtr {
 	public:

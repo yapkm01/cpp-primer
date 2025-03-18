@@ -1,10 +1,11 @@
+
+#ifndef _16_12_
+#define _16_12_
+
 #include <initializer_list>
 #include <memory>
 #include <string>
 #include <vector>
-
-#ifndef _16_12_
-#define _16_12_
 
 // forward declarations
 template <typename> class BlobPtr;

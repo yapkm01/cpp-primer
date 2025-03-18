@@ -1,7 +1,8 @@
-#include <iostream>
 
 #ifndef _16_3_
 #define _16_3_
+
+#include <iostream>
 
 class Sales_data {
   friend std::istream& read(std::istream&, Sales_data&);
@@ -40,3 +41,4 @@ std::ostream& operator<<(std::ostream&, const Sales_data&);
 bool operator==(const Sales_data&, const Sales_data&);
 
 #endif
+

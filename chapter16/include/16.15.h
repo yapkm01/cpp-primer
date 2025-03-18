@@ -1,8 +1,9 @@
-#include <string>
-#include <iostream>
 
 #ifndef _16_15_
 #define _16_15_
+
+#include <string>
+#include <iostream>
 
 template <unsigned H, unsigned W>
 class Screen;

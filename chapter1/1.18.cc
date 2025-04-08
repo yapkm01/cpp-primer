@@ -1,3 +1,10 @@
+/*
+ * Exercise 1.18:
+ * Compile and run the program from this section giving it only
+ * equal values as input. Run it again giving it values in which no number is
+ * repeated.
+ */
+
 #include <iostream>
 using namespace std;
 
@@ -22,3 +29,4 @@ int main() {
     } // outermost if statement ends here
     return 0;
 }
+

@@ -2,19 +2,20 @@
 #ifndef _16_16_
 #define _16_16_
 
-#include <string>
+#include <cstddef>
+#include <memory>
 
 template <typename T>
-class StrVec {
+class Vec {
 public:
 	// the allocator member is default initialized
-	StrVec(): elements(nullptr), first_free(nullptr), cap(nullptr) {}
+	Vec(): elements(nullptr), first_free(nullptr), cap(nullptr) {}
 	// copy constructor
-	StrVec(const StrVec&);
+	Vec(const Vec&);
 	// copy assignment
-       	StrVec &operator=(const StrVec&);
+       	Vec& operator=(const Vec&);
 	// destructor
-       	~StrVec();
+       	~Vec();
        
 	void push_back(const T&); // copy the element
 	size_t size() const { return first_free - elements; }
@@ -24,7 +25,7 @@ public:
 
 private:
 	std::allocator<T> alloc; // allocates the elements
-	// used by the functions that add elements to the StrVec
+	// used by the functions that add elements to the Vec
 	void chk_n_alloc() { if (size() == capacity()) reallocate(); }
 	// utilities used by the copy constructor, assignment operator, and destructor
 	std::pair<T*, T*> alloc_n_copy(const T*, const T*);

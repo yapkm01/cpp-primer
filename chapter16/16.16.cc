@@ -21,6 +21,16 @@ pair<T*, T*> Vec<T>::alloc_n_copy(const T* b, const T* e) {
 }
 
 template <typename T>
+Vec<T>& Vec<T>::operator=(const Vec<T>& rhs) {
+    // call alloc_n_copy to allocate exactly as many elements as in rhs
+    pair<T*, T*> newData = alloc_n_copy(rhs.begin(), rhs.end());
+    free();
+    elements = newData.first;
+    first_free = cap = newData.second;
+    return *this;
+}
+
+template <typename T>
 void Vec<T>::free() {
     // may not pass deallocate a 0 pointer; if elements is 0, there's no work to do
     if (elements) {
@@ -29,16 +39,6 @@ void Vec<T>::free() {
             alloc.destroy(--p);
         alloc.deallocate(elements, capacity());
     }
-}
-
-template <typename T>
-Vec<T>& Vec<T>::operator=(const Vec<T>& rhs) {
-    // call alloc_n_copy to allocate exactly as many elements as in rhs
-    pair<T*, T*> newData = alloc_n_copy(rhs.begin(), rhs.end());
-    free();
-    elements = newData.first;
-    first_free = cap = newData.second;
-    return *this;
 }
 
 // destructor

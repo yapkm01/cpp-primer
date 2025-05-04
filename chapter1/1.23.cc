@@ -1,3 +1,9 @@
+/*
+ * Exercise 1.23:
+ * Write a program that reads several transactions and counts
+ * how many transactions occur for each ISBN.
+ */
+
 #include <iostream>
 #include "include/Sales_item.h"
 using namespace std;
@@ -15,11 +21,11 @@ int main() {
                 count += 1; // update the running count
             else {
                 // print results for the previous book
-                cout << count << endl;
+                cout << item.isbn() << " count = " << count << endl;
                 item = currentItem;  // item now refers to the next book
 		count = 1;
             }
-        cout << count << endl; // print the last transaction
+        cout << item.isbn() << " count = " << count << endl;
     } else {
         // no input! warn the user
         cerr << "No data?!" << endl;
@@ -27,3 +33,4 @@ int main() {
     }
     return 0;
 }
+

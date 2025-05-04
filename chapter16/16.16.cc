@@ -8,7 +8,7 @@ using namespace std;
 
 // copy constructor
 template <typename T>
-Vec<T>::Vec(const Vec& v) {
+Vec<T>::Vec(const Vec<T>& v) {
 	pair<T*, T*> newData=alloc_n_copy(v.begin(), v.end());
 	elements = newData.first;
 	first_free = cap = newData.second;
@@ -36,7 +36,7 @@ void Vec<T>::free() {
     if (elements) {
         // destroy it in reverse order.
         for(auto p = first_free; p != elements;)
-            alloc.destroy(--p);
+		allocator_traits<allocator<T>>::destroy(alloc, --p);
         alloc.deallocate(elements, capacity());
     }
 }
@@ -61,7 +61,7 @@ void Vec<T>::reallocate() {
 	T* dest = newData;
 	T* old  = elements;
 	for(size_t i = 0; i != size(); ++i)
-        alloc.construct(dest++, move(*old++));
+        	alloc.construct(dest++, move(*old++));
 
 	free();
 

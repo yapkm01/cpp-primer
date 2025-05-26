@@ -10,7 +10,7 @@ using namespace std;
 
 template <typename T, unsigned N>
 void print(const T (&arr)[N]) {
-	for (auto const elem : arr)
+	for (const auto elem : arr)
 		cout << elem;
 	cout << "\nsize of array = " << N << endl;
 }

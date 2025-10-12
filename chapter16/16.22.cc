@@ -1,9 +1,15 @@
-#include "include/12_30.h"
+/*
+ * Exercise 16.22:
+ * Revise your TextQuery programs from § 12.3 (p. 484) so that
+ * the shared_ptr members use a DebugDelete as their deleter (§ 12.1.4, p.468).
+ */
+
+#include "include/16.22.h"
 #include <sstream>
 #include <algorithm>
 using namespace std;
 
-TextQuery::TextQuery(ifstream& ifs) : input(new vector<string>) {
+TextQuery::TextQuery(ifstream& ifs) : input(new vector<string>, DebugDelete()) {
     LineNo lineNo{0};
     for (string line; getline(ifs, line); ++lineNo) {
         input->push_back(line);
@@ -12,7 +18,7 @@ TextQuery::TextQuery(ifstream& ifs) : input(new vector<string>) {
             remove_copy_if(text.begin(), text.end(), back_inserter(word),
 			    [](unsigned char ch) { return ispunct(ch); });
             auto& nos = result[word];
-            if (!nos) nos.reset(new set<LineNo>);
+            if (!nos) nos.reset(new set<LineNo>, DebugDelete());
             nos->insert(lineNo);
         }
     }
@@ -20,7 +26,7 @@ TextQuery::TextQuery(ifstream& ifs) : input(new vector<string>) {
 
 QueryResult TextQuery::query(const string& str) const {
     // use static just allocate once.
-    static shared_ptr<set<LineNo>> nodata(new set<LineNo>);
+    static shared_ptr<set<LineNo>> nodata(new set<LineNo>, DebugDelete());
     auto found = result.find(str);
     if (found == result.end()) return QueryResult(str, nodata, input);
     else return QueryResult(str, found->second, input);

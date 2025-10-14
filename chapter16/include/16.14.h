@@ -1,6 +1,6 @@
 
-#ifndef _16_14_
-#define _16_14_
+#ifndef SCREEN_H_
+#define SCREEN_H_
 
 #include <string>
 

@@ -1,10 +1,6 @@
-/*
- * Exercise 16.21:
- * Write your own version of DebugDelete.
- */
 
-#ifndef DEBUG_DELETER_H
-#define DEBUG_DELETER_H
+#ifndef DEBUGDELETER_H_
+#define DEBUGDELETER_H_
 
 #include <iostream>
 

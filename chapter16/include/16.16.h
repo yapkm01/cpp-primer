@@ -1,6 +1,6 @@
 
-#ifndef _16_16_
-#define _16_16_
+#ifndef VEC_H_
+#define VEC_H_
 
 #include <cstddef>
 #include <memory>

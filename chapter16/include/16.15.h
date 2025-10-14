@@ -1,6 +1,6 @@
 
-#ifndef _16_15_
-#define _16_15_
+#ifndef SCREEN_H_
+#define SCREEN_H_
 
 #include <string>
 #include <iostream>
@@ -32,6 +32,15 @@ class Screen {
 };
 
 template<unsigned H, unsigned W>
+inline Screen<H,W>& Screen<H,W>::move(pos r, pos c) {
+    pos row = r * width;
+    cursor = row + c;
+    return *this;
+}
+
+#endif
+
+template<unsigned H, unsigned W>
 std::istream& operator>>(std::istream& is, Screen<H,W>& c) {
         char a;
         is>>a;
@@ -48,13 +57,4 @@ std::ostream& operator<<(std::ostream& os, const Screen<H,W>& c) {
        	}
        	return os;
 }
-
-template<unsigned H, unsigned W>
-inline Screen<H,W>& Screen<H,W>::move(pos r, pos c) {
-    pos row = r * width;
-    cursor = row + c;
-    return *this;
-}
-
-#endif
 

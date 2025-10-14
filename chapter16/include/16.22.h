@@ -1,5 +1,5 @@
-#ifndef TEXTQUERY_H
-#define TEXTQUERY_H
+#ifndef TEXTQUERY_H_
+#define TEXTQUERY_H_
 
 #include <string>
 #include <vector>
@@ -23,8 +23,8 @@ private:
 
 #endif
 
-#ifndef QUERYRESULT_H
-#define QUERYRESULT_H
+#ifndef QUERYRESULT_H_
+#define QUERYRESULT_H_
 
 class QueryResult {
 public:
@@ -40,18 +40,19 @@ std::ostream& print(std::ostream&, const QueryResult&);
 
 #endif
 
-#ifndef DEBUGDELETE_H
-#define DEBUGDELETE_H
+#ifndef DEBUGDELETE_H_
+#define DEBUGDELETE_H_
 
 class DebugDelete {
 public:
-	DebugDelete(std::ostream& s = std::cerr): os(s) {}
+	DebugDelete(std::string prc, std::ostream& s = std::cerr): prc(prc), os(s) {}
 	template <typename T> void operator()(T* p) const {
-		os << "deleting shared_ptr" << std::endl;
+		os << "prc = " << prc << " deleting shared_ptr" << std::endl;
 	       	delete p;
 	}
 
 private:
+	std::string prc;
 	std::ostream &os;
 };
 

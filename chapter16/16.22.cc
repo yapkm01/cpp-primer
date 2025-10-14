@@ -9,7 +9,7 @@
 #include <algorithm>
 using namespace std;
 
-TextQuery::TextQuery(ifstream& ifs) : input(new vector<string>, DebugDelete()) {
+TextQuery::TextQuery(ifstream& ifs) : input(new vector<string>, DebugDelete("TextQuery.input")) {
     LineNo lineNo{0};
     for (string line; getline(ifs, line); ++lineNo) {
         input->push_back(line);
@@ -18,7 +18,7 @@ TextQuery::TextQuery(ifstream& ifs) : input(new vector<string>, DebugDelete()) {
             remove_copy_if(text.begin(), text.end(), back_inserter(word),
 			    [](unsigned char ch) { return ispunct(ch); });
             auto& nos = result[word];
-            if (!nos) nos.reset(new set<LineNo>, DebugDelete());
+            if (!nos) nos.reset(new set<LineNo>, DebugDelete("TextQuery.result.nos"));
             nos->insert(lineNo);
         }
     }
@@ -26,7 +26,7 @@ TextQuery::TextQuery(ifstream& ifs) : input(new vector<string>, DebugDelete()) {
 
 QueryResult TextQuery::query(const string& str) const {
     // use static just allocate once.
-    static shared_ptr<set<LineNo>> nodata(new set<LineNo>, DebugDelete());
+    static shared_ptr<set<LineNo>> nodata(new set<LineNo>, DebugDelete("nodata"));
     auto found = result.find(str);
     if (found == result.end()) return QueryResult(str, nodata, input);
     else return QueryResult(str, found->second, input);

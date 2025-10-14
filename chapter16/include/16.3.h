@@ -1,6 +1,6 @@
 
-#ifndef _16_3_
-#define _16_3_
+#ifndef SALES_DATA_H_
+#define SALES_DATA_H_
 
 #include <iostream>
 
@@ -34,11 +34,11 @@ inline bool compareIsbn(const Sales_data& lhs, const Sales_data& rhs) {
   return lhs.isbn() < rhs.isbn(); 
 }
 
+#endif
+
 std::istream& read(std::istream&, Sales_data&);
 std::ostream& print(std::ostream&, const Sales_data&);
 std::istream& operator>>(std::istream&, Sales_data&);
 std::ostream& operator<<(std::ostream&, const Sales_data&);
 bool operator==(const Sales_data&, const Sales_data&);
-
-#endif
 

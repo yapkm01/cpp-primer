@@ -27,8 +27,13 @@ class Blob {
 	public:
 		typedef T value_type;
 		typedef typename std::vector<T>::size_type size_type;
+
 		Blob() : data(std::make_shared<std::vector<T>>()) {}
 		Blob(std::initializer_list<T> il) : data(std::make_shared<std::vector<T>>(il)) {}
+		// constructor taking two iterators
+		template<typename It>
+		Blob(It b, It e);
+
 		size_type size() const { return data->size(); }
 		bool empty() const { return data->size(); }
 		void push_back(const T& t) { data->push_back(t); }
@@ -45,6 +50,12 @@ class Blob {
 		std::shared_ptr<std::vector<T>> data;
 		void check(size_type, const std::string& msg) const;
 };
+
+
+// constructor taking two iterators
+template<typename T>    //for class
+template<typename It>   //for this member
+Blob<T>::Blob(It b, It e) : data(std::make_shared<std::vector<T>>(b, e)) {}
 
 template <typename T>
 void Blob<T>::check(size_type i, const std::string& msg) const {

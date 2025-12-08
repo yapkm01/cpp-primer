@@ -23,7 +23,7 @@ public:
 	B getB() const { return this -> _b; }
     	
 private:
-	int _x;
+	int _x=89;
     	B _b;
 
 };

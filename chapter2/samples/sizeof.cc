@@ -2,9 +2,8 @@
 using namespace std;
 
 int main() {
-
 	cout << "******* integral types *******" << endl;
-	cout << "sizeof (boo) :- " << sizeof(bool) << endl;
+	cout << "sizeof (bool) :- " << sizeof(bool) << endl;
 	cout << "sizeof (char) :- " << sizeof(char) << endl;
 	cout << "sizeof (signed char) :- " << sizeof(signed char) << endl;
 	cout << "sizeof (unsigned char) :- " << sizeof(unsigned char) << endl;

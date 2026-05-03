@@ -5,7 +5,6 @@ using namespace std;
 int* ipg;
 
 int main() {
-
 	// print global pointer
 	cout << ipg << endl;
 
@@ -23,5 +22,4 @@ int main() {
 	cout << i << " " << ip1 << " " << *ip1 << " " << ip2 << " " << *ip2 << endl;
 
 	return 0;
-
 }

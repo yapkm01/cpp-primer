@@ -3,7 +3,6 @@
 using namespace std;
 
 int main() {
-
 	int arr0[4] = {7,2,3,4};
 	int* p1 = arr0;
 
@@ -115,5 +114,4 @@ int main() {
 	}
 
 	return 0;
-
 }

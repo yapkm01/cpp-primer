@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-	const int x = 4,y = 2,& r1 = y; // the int const are decl-specifier-seq. therefore ok
+	const int x = 4, y = 2, & r1 = y; // the int const are decl-specifier. therefore ok
 	cout << r1 << endl;
 
 	// fail due to const is a decl-specifier rather than part of a declarator

@@ -14,7 +14,7 @@ constexpr const char* names[] = {
 	SENTINEL // Sentinel: marks the end of the array
 };
 
-static void printName(const char* const* arr) {
+static void printName(const char* const* arr) { // arr is: a pointer to a const pointer to a const char
 	while (*arr != SENTINEL) { // Loop until we hit the sentinel
 		cout << *arr << endl;
 		++arr;
@@ -22,7 +22,7 @@ static void printName(const char* const* arr) {
 }
 
 // Count elements until nullptr sentinel (compile-time capable)
-static constexpr int countUntilSentinel(const char* const* arr) {
+static constexpr int countUntilSentinel(const char* const* arr) { // arr is: a pointer to a const pointer to a const char
 	int count = 0;
 	while (arr[count] != SENTINEL) {
 		++count;

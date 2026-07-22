@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// global pointer - default initalization
+// global pointer - zero initilization
 int* ipg;
 
 int main() {

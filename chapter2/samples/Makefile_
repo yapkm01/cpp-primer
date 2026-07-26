@@ -16,13 +16,6 @@ all: directories $(OBJ)
 directories:
 	mkdir -p $(BUILD)
 
-#$(BUILD)/type_deduct_extern.o: extern.cc type_deduct_extern.cc
-#	-$(CXX) -c $< $(CXXFLAG) -MMD -MP -o $@
-
-$(BUILD)/extern.o:
-	echo "aa"
-	-$(CXX) -c $< $(CXXFLAG) -MMD -MP -o $@
-
 $(BUILD)/%.o: %.cc
 	-$(CXX) -c $< $(CXXFLAG) -MMD -MP -o $@
 	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)

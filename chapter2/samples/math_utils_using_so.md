@@ -1,7 +1,7 @@
 Instruction on creating a shared object and its usage
 =====================================================
 
-1. Create a position independent code for math_utils_fnc.o
+1. Create a position independent code for math_utils_fnc.cc
 
 $ g++ -std=c++20 -c -fPIC math_utils_fnc.cc -o ../build/math_utils_fnc.o
 

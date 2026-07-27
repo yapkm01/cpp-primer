@@ -20,3 +20,7 @@ $ g++ -std=c++20 -o ../build/math_utils_using_so ../build/math_utils_using_so.o 
 5. Export library path to LD_LIBRARY_PATH
 
 $ export LD_LIBRARY_PATH=./../build
+
+6. Run built math_utils_using_so
+
+$ ./../build/math_utils_using_so

@@ -23,6 +23,14 @@ $(BUILD)/./type_deduct_extern.o: $(BUILD)/./extern.o type_deduct_extern.cc
 $(BUILD)/./extern.o: extern.cc
 	-$(CXX) -c $< $(CXXFLAG) -MMD -MP -o $@
 
+$(BUILD)/./math_utils_fnc.o: math_utils_fnc.cc
+	-$(CXX) -c $< -fPIC $(CXXFLAG) -MMD -MP -o $@
+	-$(CXX) -shared -o $(patsubst %.cc,$(BUILD)/lib%.so,$<) $@
+
+$(BUILD)/./math_utils_using_so.o: $(BUILD)/./math_utils_fnc.o math_utils_using_so.cc
+	-$(CXX) -c $(lastword $^) $(CXXFLAG) -MMD -MP -o $@
+	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG) -L$(BUILD) -lmath_utils_fnc
+
 $(BUILD)/%.o: %.cc
 	-$(CXX) -c $< $(CXXFLAG) -MMD -MP -o $@
 	-$(CXX) -o $(patsubst %.o,%,$@) $@ $(CXXFLAG)
@@ -35,4 +43,5 @@ clean:
 	for n in $(EXE); do \
                 rm $$n* 2>/dev/null || true;  \
         done
+	rm $(BUILD)/*.so
 

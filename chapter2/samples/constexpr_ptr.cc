@@ -31,6 +31,10 @@ static constexpr int countUntilSentinel(const char* const* arr) { // arr is: a p
 }
 
 int main() {
+	static constexpr int i = 42;
+	constexpr const int* p = &i; // Notice that pointer p which has the address of i, which is a constant 
+				     // expression with automatic (non-static) storage. Hence constexpr pointer p
+				     // requires static storage of i.
 	cout << "== Names in array ==\n";
 	printName(names);
 

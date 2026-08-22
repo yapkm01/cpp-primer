@@ -2,10 +2,8 @@
 using namespace std;
 
 // Rule of Thumb:
-// a. Default Initialization always use default constructor
-// b. Value Initialization will use Zero Initilization (every byte/scalar members set to 0 in memory, including int _i inside nested B _b)
-//    if there's no user-provided default constructor or deleted constructor are provided. Value Initialization occurs before
-//    any class default constructor are called
+// a. Default initialization always use default constructor
+// b. Value initialization will use zero initilization if there is no user-provided default constructor or deleted constructor provided. In zero initialization, members are set to its logical value of zero before any class default constructor are called.
 
 class B {
 public:

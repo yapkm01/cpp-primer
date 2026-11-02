@@ -35,11 +35,11 @@ void printNumber(const Number& num) {
 
 int main() {
 	// 1. Direct Initialization
-	// Looks for a constructor that matches 42. Works with or without the explicit keyword
+	// Looks for a constructor that matches 42. Applicable for both explicit and implicit constructor
 	Number n1(42);
 
 	// 2. Copy Initialization
-	// Looks for a constructor that matches 100. Works only without the explicit keyword
+	// Looks for a constructor that matches 100. Forbidden to use explicit constructor
 	Number n2 = 100;
 	printNumber(20);
 
